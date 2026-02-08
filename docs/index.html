@@ -1,16 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Character Select - Fighting Game</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fighting Game - Battle Arena</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+    <body>
+        <!-- Character Selection Screen -->
+        <div id="character-select">
+            <!-- Character Preview Section (Left) -->
+            <div class="character-preview">
+                <div class="preview-container">
+                    <div class="character-name">SELECT YOUR FIGHTER</div>
+                    <div class="character-image">
+                        <img
+                            id="preview-img"
+                            src="assets/placeholder.png"
+                            alt="Character Preview"
+                            style="display: none" />
+                        <div class="placeholder-text">?</div>
+                    </div>
 
-  <body class="arena-page">
-    <div id="game"></div>
-    <script type="module" src="js/main.js"></script>
-  </body>
+                    <!-- Character Stats -->
+                    <div class="character-info">
+                        <p class="character-title" id="character-title">
+                            Choose a character
+                        </p>
+                        <div class="character-stats">
+                            <div class="stat">
+                                <span>STRENGTH:</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill"
+                                        id="stat-strength"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <span>SPEED:</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill"
+                                        id="stat-speed"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <span>DEFENSE:</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill"
+                                        id="stat-defense"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Character Selection Grid (Center) -->
+            <div class="character-grid-section">
+                <h2 class="section-title">CHARACTER ROSTER</h2>
+                <div class="character-grid">
+                    <!-- melvis  carcter 1 -->
+                    <div
+                        class="character-slot"
+                        data-character="1"
+                        data-name="melvis"
+                        data-strength="50"
+                        data-speed="50"
+                        data-defense="50">
+                        <div
+                            class="character-placeholder melvis sprite-preview">
+                            <img
+                                src="assets/characters/character1.png"
+                                alt="melvis"
+                                class="char-img" />
+                            <span class="char-name">MELVIS not fightr</span>
+                        </div>
+                    </div>
+
+                    <!-- ninja  carcter 2 -->
+                    <div
+                        class="character-slot"
+                        data-character="2"
+                        data-name="Shadow Ninja"
+                        data-strength="65"
+                        data-speed="90"
+                        data-defense="60">
+                        <div class="character-placeholder ninja">
+                            <img src="assets/characters/ninja.png" alt="Shadow Ninja" class="char-img">
+                            <span class="char-name">NINJA</span>
+                        </div>
+                    </div>
+
+                    <!-- pixel samurai  carcter 3 -->
+                    <div
+                        class="character-slot"
+                        data-character="3"
+                        data-name="Pixel Samurai"
+                        data-strength="75"
+                        data-speed="80"
+                        data-defense="65">
+                        <div
+                            class="character-placeholder samurai sprite-preview">
+                            <img
+                                src="assets/characters/oddsamo.png"
+                                alt="Samurai"
+                                class="char-img" />
+                            <span class="char-name">SAMURAI</span>
+                        </div>
+                    </div>
+
+                    <!-- dark samurai  carcter 4 -->
+                    <div
+                        class="character-slot"
+                        data-character="4"
+                        data-name="Dark Samurai"
+                        data-strength="80"
+                        data-speed="75"
+                        data-defense="80">
+                        <div
+                            class="character-placeholder dark-samurai sprite-preview">
+                            <img
+                                src="assets/characters/darksamurai.png"
+                                alt="Dark Samurai"
+                                class="char-img" />
+                            <span class="char-name">DARK SAMURAI</span>
+                        </div>
+                    </div>
+
+                    <!-- shinobi  carcter 5 -->
+                    <div
+                        class="character-slot"
+                        data-character="5"
+                        data-name="Shinobi"
+                        data-strength="70"
+                        data-speed="95"
+                        data-defense="55">
+                        <div
+                            class="character-placeholder shinobi sprite-preview">
+                            <img
+                                src="assets/characters/shinobi.png"
+                                alt="Shinobi"
+                                class="char-img" />
+                            <span class="char-name">SHINOBI</span>
+                        </div>
+                    </div>
+
+                    <!-- street fighter  carcter 6 -->
+                    <div
+                        class="character-slot"
+                        data-character="6"
+                        data-name="Street Fighter"
+                        data-strength="85"
+                        data-speed="80"
+                        data-defense="70">
+                        <div
+                            class="character-placeholder street-fighter sprite-preview">
+                            <img
+                                src="assets/characters/fighter.png"
+                                alt="Street Fighter"
+                                class="char-img" />
+                            <span class="char-name">FIGHTER</span>
+                        </div>
+                    </div>
+
+                    <!-- gotoku  carcter 7 -->
+                    <div
+                        class="character-slot"
+                        data-character="7"
+                        data-name="Gotoku"
+                        data-strength="90"
+                        data-speed="65"
+                        data-defense="80">
+                        <div
+                            class="character-placeholder gotoku sprite-preview">
+                            <img
+                                src="assets/characters/gotoku.png"
+                                alt="Gotoku"
+                                class="char-img" />
+                            <span class="char-name">GOTOKU</span>
+                        </div>
+                    </div>
+
+                    <!-- onre  carcter 8 -->
+                    <div
+                        class="character-slot"
+                        data-character="8"
+                        data-name="Onre"
+                        data-strength="75"
+                        data-speed="85"
+                        data-defense="70">
+                        <div class="character-placeholder onre sprite-preview">
+                            <img
+                                src="assets/characters/onre.png"
+                                alt="Onre"
+                                class="char-img" />
+                            <span class="char-name">ONRE</span>
+                        </div>
+                    </div>
+
+                    <!-- yurei  carcter 9 -->
+                    <div
+                        class="character-slot"
+                        data-character="9"
+                        data-name="Yurei"
+                        data-strength="70"
+                        data-speed="90"
+                        data-defense="65">
+                        <div class="character-placeholder yurei sprite-preview">
+                            <img
+                                src="assets/characters/yurei.png"
+                                alt="Yurei"
+                                class="char-img" />
+                            <span class="char-name">YUREI</span>
+                        </div>
+                    </div>
+
+                    <!-- graffiti artist  carcter 10 -->
+                    <div
+                        class="character-slot"
+                        data-character="10"
+                        data-name="Graffiti Artist"
+                        data-strength="75"
+                        data-speed="85"
+                        data-defense="65">
+                        <div
+                            class="character-placeholder graffiti-artist sprite-preview">
+                            <img
+                                src="assets/characters/grafifti.png"
+                                alt="Graffiti Artist"
+                                class="char-img" />
+                            <span class="char-name">GRAFFITI</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="character-slot"
+                        data-character="11"
+                        data-name="Gorgon"
+                        data-strength="90"
+                        data-speed="60"
+                        data-defense="85">
+                        <div
+                            class="character-placeholder gorgon sprite-preview">
+                            <img
+                                src="assets/characters/gorgon.png"
+                                alt="Gorgon"
+                                class="char-img" />
+                            <span class="char-name">GORGON</span>
+                        </div>
+                    </div>
+
+                    <!-- {locked characters} -->
+
+                    <div
+                        class="character-slot"
+                        data-character="12"
+                        data-name="Minotaur"
+                        data-strength="95"
+                        data-speed="55"
+                        data-defense="90">
+                        <div
+                            class="character-placeholder minotaur sprite-preview">
+                            <img
+                                src="assets/characters/minotaur.png"
+                                alt="Minotaur"
+                                class="char-img" />
+                            <span class="char-name">MINOTAUR</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="character-slot"
+                        data-character="13"
+                        data-name="zombie"
+                        data-strength="85"
+                        data-speed="65"
+                        data-defense="80">
+                        <div
+                            class="character-placeholder zombie sprite-preview">
+                            <img
+                                src="assets/characters/zombie.png"
+                                alt="Zombie"
+                                class="char-img" />
+                            <span class="char-name">ZOMBIE</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="character-slot"
+                        data-character="14"
+                        data-name="samurai"
+                        data-strength="80"
+                        data-speed="70"
+                        data-defense="75">
+                        <div
+                            class="character-placeholder samurai sprite-preview">
+                            <img
+                                src="assets/characters/samurai.png"
+                                alt="Samurai"
+                                class="char-img" />
+                            <span class="char-name">SAMURAI</span>
+                        </div>
+                    </div>
+
+                    <div class="character-slot" data-character="15"
+                        data-name="samurai commander"
+                        data-strength="90"
+                        data-speed="75"
+                        data-defense="85">
+                        <div
+                            class=" character-placeholder samurai_commander-character">
+                            <img src="assets/characters/samurai_commander.png"
+                                alt="Samurai Commander" class="char-img" />
+                            <span class="char-name">SAMURAI COMMANDER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start Button -->
+                <button class="start-button" id="start-game" disabled>
+                    <span class="button-text">START GAME</span>
+                    <span class="button-subtitle">(Select character and
+                        mode)</span>
+                </button>
+            </div>
+
+            <!-- Game Mode Selection (Right) -->
+            <div class="game-mode-section">
+                <h2 class="section-title">GAME MODE</h2>
+                <div class="mode-options">
+                    <div class="mode-option" data-mode="story">
+                        <div class="mode-icon">📖</div>
+                        <div class="mode-name">STORY MODE</div>
+                        <div class="mode-description">Follow the epic
+                            story</div>
+                    </div>
+                    <div class="mode-option" data-mode="arcade">
+                        <div class="mode-icon">🎮</div>
+                        <div class="mode-name">ARCADE</div>
+                        <div class="mode-description">Classic battles</div>
+                    </div>
+                    <!-- <div class="mode-option" data-mode="tower">
+                        <div class="mode-icon">🗼</div>
+                        <div class="mode-name">TOWER</div>
+                        <div class="mode-description">Climb 10 floors!</div>
+                    </div> -->
+
+                    <!--  no use yet -->
+                    <!-- <div class="mode-option" data-mode="versus">
+                        <div class="mode-icon">⚔️</div>
+                        <div class="mode-name">VERSUS</div>
+                        <div class="mode-description">Fight other players</div>
+                    </div> -->
+
+                    <div class="mode-option" data-mode="training">
+                        <div class="mode-icon">🥋</div>
+                        <div class="mode-name">TRAINING</div>
+                        <div class="mode-description">Practice your skills</div>
+                    </div>
+                </div>
+
+                <!-- SETTINGS -->
+                <h2 class="section-title" style="margin-top: 30px">SETTINGS</h2>
+                <div class="settings-options">
+                    <div class="setting-item">
+                        <span>DIFFICULTY:</span>
+                        <select id="difficulty">
+                            <option value="easy">EASY</option>
+                            <option value="normal" selected>NORMAL</option>
+                            <option value="hard">HARD</option>
+                            <option value="expert">EXPERT</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <span>ROUNDS:</span>
+                        <select id="rounds">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- MAP SELECTION (Arcade Mode Only) -->
+                <div id="map-selection" style="display: none">
+                    <h2 class="section-title" style="margin-top: 20px">SELECT
+                        MAP</h2>
+                    <div class="map-grid" id="map-grid">
+                        <div class="map-option selected" data-map="random">
+                            <div
+                                class="map-preview"
+                                style="
+                  background: linear-gradient(
+                    135deg,
+                    #ff9900 0%,
+                    #ff6600 50%,
+                    #ff3300 100%
+                  );
+                "></div>
+                            <span class="map-name">RANDOM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+      // ===== MAP GENERATION =====
+      const mapGrid = document.getElementById("map-grid");
+      const TOTAL_MAPS = 20;
+
+       const maps = [
+    "assets/maps/Alhabash Underground Garage.png", 
+    "assets/maps/Ashfall Arcade.png",
+    "assets/maps/Blackout Stage.png",
+    "assets/maps/Bytefall Cafeteria.png",
+    "assets/maps/Day in the Garage.png",
+    "assets/maps/hamanyy map.png",
+    "assets/maps/Hanon Quiet Slumber.png",
+    "assets/maps/Jamil Last Stand.png",
+    "assets/maps/Main Stage Arena.png",
+    "assets/maps/Melvis Power.png",
+    "assets/maps/Open Floor Lab.png",
+    "assets/maps/Pixel Aftermath.png",
+    "assets/maps/Quiet Compute Hall.png",
+    "assets/maps/reboot door.png",
+    "assets/maps/Reboot Innovation Lounge.png",
+    "assets/maps/reboot sofa.png",
+    "assets/maps/Reboot Training Hub.png",
+    "assets/maps/Reboot Lobby Inferno.png",
+    "assets/maps/Rubber duck debugging.png",
+  ];
+
+      for (let i = 1; i <= TOTAL_MAPS; i++) {
+        const mapDiv = document.createElement("div");
+        mapDiv.className = "map-option";
+        mapDiv.dataset.map = i;
+
+        mapDiv.innerHTML = `
+              <div class="map-preview" style="background-image: url('${maps[i-1]}');"></div>
+                 <span class="map-name"> ${maps[i-1].split('/').pop().replace('.png', '')}</span>
+                  `;
+
+        mapGrid.appendChild(mapDiv);
+      }
+        </script>
+        <script src="js/character-select.js"></script>
+    </body>
 </html>

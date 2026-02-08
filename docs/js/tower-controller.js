@@ -316,25 +316,25 @@ class TowerModeController {
     });
 
     const maps = [
-    "assets/maps/Alhabash Underground Garage.png",
-    "assets/maps/Ashfall Arcade.png",
-    "assets/maps/Blackout Stage.png",
-    "assets/maps/Bytefall Cafeteria.png",
-    "assets/maps/Day in the Garage.png",
-    "assets/maps/hamanyy map.png",
-    "assets/maps/Hanon's Quiet Slumber.png",
-    "assets/maps/Jamil's Last Stand.png",
-    "assets/maps/Main Stage Arena.png",
-    "assets/maps/Melvis Power.png",
-    "assets/maps/Open Floor Lab.png",
-    "assets/maps/Pixel Aftermath.png",
-    "assets/maps/Quiet Compute Hall.png",
-    "assets/maps/reboot door.png",
-    "assets/maps/Reboot Innovation Lounge.png",
-    "assets/maps/reboot sofa.png",
-    "assets/maps/Reboot Training Hub.png",
-    "assets/maps/Reboot Lobby Inferno.png",
-    "assets/maps/Rubber duck debugging.png",
+      "assets/maps/Alhabash Underground Garage.png",
+      "assets/maps/Ashfall Arcade.png",
+      "assets/maps/Blackout Stage.png",
+      "assets/maps/Bytefall Cafeteria.png",
+      "assets/maps/Day in the Garage.png",
+      "assets/maps/hamanyy map.png",
+      "assets/maps/Hanon's Quiet Slumber.png",
+      "assets/maps/Jamil's Last Stand.png",
+      "assets/maps/Main Stage Arena.png",
+      "assets/maps/Melvis Power.png",
+      "assets/maps/Open Floor Lab.png",
+      "assets/maps/Pixel Aftermath.png",
+      "assets/maps/Quiet Compute Hall.png",
+      "assets/maps/reboot door.png",
+      "assets/maps/Reboot Innovation Lounge.png",
+      "assets/maps/reboot sofa.png",
+      "assets/maps/Reboot Training Hub.png",
+      "assets/maps/Reboot Lobby Inferno.png",
+      "assets/maps/Rubber duck debugging.png",
     ];
 
     const randomMap = maps[Math.floor(Math.random() * maps.length)];
@@ -585,10 +585,11 @@ class TowerModeController {
 
     overlay.innerHTML = `
             <div style="font-size: 1.2rem; color: #666; margin-bottom: 10px; letter-spacing: 5px;">
-                ${enemyConfig.isBoss
-        ? "🔥 BOSS FLOOR 🔥"
-        : `FLOOR ${this.currentFloor}`
-      }
+                ${
+                  enemyConfig.isBoss
+                    ? "🔥 BOSS FLOOR 🔥"
+                    : `FLOOR ${this.currentFloor}`
+                }
             </div>
             <div style="font-size: 2rem; color: #00aaff; margin-bottom: 20px;">
                 ${config?.character?.name || "PLAYER"}
@@ -1015,7 +1016,7 @@ class TowerModeController {
 
   exitTower() {
     this.cleanup();
-    window.location.href = "home.html";
+    window.location.href = "index.html";
   }
 
   cleanup() {

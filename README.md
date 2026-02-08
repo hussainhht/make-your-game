@@ -47,7 +47,7 @@ https://<username>.github.io/<repo>/
 2. **Open in Browser**
 
    ```
-   http://localhost:8000/home.html
+   http://localhost:8000/index.html
    ```
 
 3. **Select Character & Mode**
@@ -66,8 +66,8 @@ https://<username>.github.io/<repo>/
 ```
 ├── docs/                  # Documentation
 ├── game/
-│   ├── index.html        # Arcade mode
-│   ├── home.html         # Character selection
+│   ├── arcade.html       # Arcade mode
+│   ├── index.html        # Character selection
 │   ├── story.html        # Story mode
 │   ├── tower.html        # Tower mode
 │   ├── assets/           # Game assets

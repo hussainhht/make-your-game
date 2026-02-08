@@ -218,7 +218,7 @@ function init() {
   createPauseOverlay(
     resumeGame,
     restartGame,
-    () => (window.location.href = "home.html"),
+    () => (window.location.href = "index.html"),
   );
 
   if (trainingMode) createTrainingDamageUI();
@@ -367,7 +367,7 @@ function endRound(playerWon) {
         showGameOverScreen(
           playerWins >= winsNeeded,
           restartGame,
-          () => (window.location.href = "home.html"),
+          () => (window.location.href = "index.html"),
           score,
         ),
       1000,

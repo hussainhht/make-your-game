@@ -108,11 +108,11 @@ function goToScene(sceneId) {
 }
 
 function withdrawStory() {
-  window.location.href = "home.html";
+  window.location.href = "index.html";
 }
 
 function retreatToMenu() {
-  window.location.href = "home.html";
+  window.location.href = "index.html";
 }
 
 function startFight(fightNum) {
@@ -493,7 +493,7 @@ function showAuditDefeat() {
   document
     .getElementById("back-to-menu-audit-btn")
     .addEventListener("click", () => {
-      window.location.href = "home.html";
+      window.location.href = "index.html";
     });
 }
 
@@ -696,7 +696,7 @@ function createPauseOverlay() {
   btnMenu.style.background = "transparent";
   btnMenu.style.color = "#ff9900";
   btnMenu.addEventListener("click", () => {
-    window.location.href = "home.html";
+    window.location.href = "index.html";
   });
 
   panel.appendChild(title);
@@ -1152,7 +1152,7 @@ function showComingSoon() {
     <h1 class="coming-soon-title">COMING SOON</h1>
     <p class="coming-soon-text">The story continues...</p>
     <p style="color: #444; font-size: 0.9rem; margin-bottom: 40px;">Stage 3 and the final chapter are under development.</p>
-    <button class="continue-btn" onclick="window.location.href='home.html'" style="margin-top: 20px;">
+    <button class="continue-btn" onclick="window.location.href='index.html'" style="margin-top: 20px;">
       🏠 RETURN TO MENU
     </button>
   `;
@@ -1194,7 +1194,7 @@ function showDefeat() {
     .getElementById("retry-fight-btn")
     .addEventListener("click", retryFight);
   document.getElementById("back-to-menu-btn").addEventListener("click", () => {
-    window.location.href = "home.html";
+    window.location.href = "index.html";
   });
 }
 

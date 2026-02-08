@@ -233,7 +233,7 @@ class CharacterSelect {
 
     setTimeout(() => {
       if (this.selectedMode === "arcade") {
-        window.location.href = "index.html";
+        window.location.href = "arcade.html";
       } else if (this.selectedMode === "story") {
         window.location.href = "story.html";
       } else if (this.selectedMode === "tower") {
@@ -242,7 +242,7 @@ class CharacterSelect {
         gameConfig.difficulty = "easy";
         gameConfig.mode = "training";
         sessionStorage.setItem("gameConfig", JSON.stringify(gameConfig));
-        window.location.href = "index.html";
+        window.location.href = "arcade.html";
       } else if (this.selectedMode === "versus") {
         loadingMessage.textContent = "VERSUS MODE COMING SOON!";
         setTimeout(() => {
