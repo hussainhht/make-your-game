@@ -1,0 +1,661 @@
+/* Tower Mode Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+    color: #fff;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Container */
+#tower-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Screen Management */
+.tower-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.tower-screen.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Styles */
+.tower-header {
+    margin-bottom: 20px;
+}
+
+.tower-badge {
+    display: inline-block;
+    padding: 5px 20px;
+    background: linear-gradient(135deg, #ff6600 0%, #ff9900 100%);
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.tower-title {
+    font-size: 2.5rem;
+    color: #ff9900;
+    text-shadow: 0 0 30px rgba(255, 153, 0, 0.8);
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.tower-subtitle {
+    font-size: 1.2rem;
+    color: #888;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+/* Tower Visual */
+.tower-visual {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.tower-icon {
+    font-size: 6rem;
+    text-shadow: 0 0 30px rgba(255, 153, 0, 0.5);
+    animation: towerPulse 2s ease-in-out infinite;
+}
+
+@keyframes towerPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.tower-floors-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.floor-marker {
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #666;
+    font-size: 0.9rem;
+    color: #888;
+    text-align: left;
+    transition: all 0.3s;
+}
+
+.floor-marker.boss {
+    background: rgba(255, 0, 0, 0.2);
+    border-left-color: #ff0000;
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.floor-marker.current {
+    background: rgba(255, 153, 0, 0.3);
+    border-left-color: #ff9900;
+    color: #ff9900;
+}
+
+.floor-marker.cleared {
+    background: rgba(0, 255, 0, 0.2);
+    border-left-color: #00ff00;
+    color: #00ff00;
+}
+
+/* Tower Description */
+.tower-description {
+    margin: 20px 0;
+    max-width: 500px;
+}
+
+.tower-description p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin: 10px 0;
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+.tower-warning {
+    color: #ffaa00 !important;
+}
+
+.tower-boss-hint {
+    color: #ff4444 !important;
+}
+
+/* Progress Info */
+.tower-progress-info {
+    margin: 15px 0;
+    padding: 15px 25px;
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid #00ff00;
+    border-radius: 8px;
+    display: none;
+}
+
+.tower-progress-info.visible {
+    display: block;
+}
+
+.tower-progress-info p {
+    color: #00ff00;
+    font-size: 1rem;
+}
+
+/* Buttons */
+.tower-buttons,
+.stage-buttons,
+.defeat-buttons,
+.complete-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tower-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 1px;
+    min-width: 250px;
+}
+
+.tower-btn.start,
+.tower-btn.fight,
+.tower-btn.next {
+    background: linear-gradient(135deg, #ff6600 0%, #ff9900 100%);
+    border-color: #ff9900;
+    color: #000;
+}
+
+.tower-btn.start:hover,
+.tower-btn.fight:hover,
+.tower-btn.next:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.5);
+}
+
+.tower-btn.continue {
+    background: linear-gradient(135deg, #00aa00 0%, #00dd00 100%);
+    border-color: #00ff00;
+    color: #000;
+}
+
+.tower-btn.continue:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.tower-btn.retry {
+    background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+    border-color: #00aaff;
+    color: #fff;
+}
+
+.tower-btn.retry:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+}
+
+.tower-btn.restart {
+    background: transparent;
+    border-color: #ff9900;
+    color: #ff9900;
+}
+
+.tower-btn.restart:hover {
+    background: rgba(255, 153, 0, 0.1);
+}
+
+.tower-btn.back,
+.tower-btn.exit {
+    background: transparent;
+    border-color: #666;
+    color: #888;
+}
+
+.tower-btn.back:hover,
+.tower-btn.exit:hover {
+    border-color: #888;
+    color: #fff;
+}
+
+/* Stage Select / Enemy Preview */
+.stage-preview {
+    margin: 20px 0;
+}
+
+.enemy-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+    border: 3px solid #ff9900;
+    border-radius: 15px;
+    padding: 25px;
+    min-width: 350px;
+    box-shadow: 0 0 30px rgba(255, 153, 0, 0.3);
+}
+
+.enemy-card.boss-card {
+    border-color: #ff0000;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.4);
+}
+
+.enemy-sprite {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.enemy-sprite img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.enemy-sprite .sprite-placeholder {
+    font-size: 4rem;
+}
+
+.enemy-info {
+    margin-bottom: 15px;
+}
+
+.enemy-name {
+    font-size: 1.5rem;
+    color: #ff9900;
+    margin-bottom: 5px;
+}
+
+.enemy-card.boss-card .enemy-name {
+    color: #ff0000;
+}
+
+.enemy-difficulty {
+    font-size: 0.9rem;
+    color: #888;
+    letter-spacing: 2px;
+}
+
+.enemy-difficulty.hard {
+    color: #ff4444;
+}
+
+.enemy-difficulty.boss {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.enemy-stats {
+    margin-top: 15px;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #888;
+    width: 70px;
+    text-align: right;
+}
+
+.stat-bar {
+    flex: 1;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+.stat-fill.health {
+    background: linear-gradient(90deg, #ff4400, #ff0000);
+}
+
+.stat-fill.defense {
+    background: linear-gradient(90deg, #0066ff, #00aaff);
+}
+
+/* Fight Screen */
+#tower-fight {
+    padding: 0;
+}
+
+#tower-fight-hud {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 25px;
+    border-radius: 20px;
+    border: 2px solid #ff9900;
+}
+
+.floor-indicator {
+    font-size: 1.2rem;
+    color: #ff9900;
+    letter-spacing: 2px;
+}
+
+#tower-game {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Round Result Screen */
+#tower-round-result {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+.result-container {
+    text-align: center;
+}
+
+.result-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.result-icon.win {
+    color: #00ff00;
+}
+
+.result-icon.lose {
+    color: #ff0000;
+}
+
+.result-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.result-title.win {
+    color: #00ff00;
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.result-title.lose {
+    color: #ff0000;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.result-score {
+    font-size: 1.3rem;
+    color: #ff9900;
+    margin-bottom: 15px;
+}
+
+.result-message {
+    font-size: 1rem;
+    color: #888;
+}
+
+/* Victory Screen */
+.victory-container,
+.complete-container {
+    text-align: center;
+}
+
+.victory-icon {
+    font-size: 5rem;
+    margin-bottom: 15px;
+    animation: victoryBounce 1s ease infinite;
+}
+
+@keyframes victoryBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.victory-title {
+    font-size: 2.5rem;
+    color: #00ff00;
+    text-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.victory-floor {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.victory-message {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+/* Complete Screen */
+.complete-icon {
+    font-size: 6rem;
+    margin-bottom: 15px;
+    animation: crownGlow 2s ease infinite;
+}
+
+@keyframes crownGlow {
+    0%, 100% { 
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    }
+    50% { 
+        text-shadow: 0 0 60px rgba(255, 215, 0, 0.8), 0 0 90px rgba(255, 153, 0, 0.5);
+    }
+}
+
+.complete-title {
+    font-size: 3rem;
+    color: #ffd700;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.complete-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+.complete-reward {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 153, 0, 0.1) 100%);
+    border: 2px solid #ffd700;
+    border-radius: 15px;
+    padding: 20px 40px;
+    margin: 20px 0;
+}
+
+.reward-badge {
+    font-size: 1.5rem;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.complete-reward p {
+    color: #ccc;
+    font-size: 1rem;
+}
+
+/* Defeat Screen */
+.defeat-container {
+    text-align: center;
+}
+
+.defeat-icon {
+    font-size: 5rem;
+    margin-bottom: 15px;
+    color: #ff0000;
+}
+
+.defeat-title {
+    font-size: 2.5rem;
+    color: #ff0000;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.defeat-floor {
+    font-size: 1.2rem;
+    color: #ff6666;
+    margin-bottom: 15px;
+}
+
+.defeat-message {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+/* Fight UI Overrides */
+.tower-screen#tower-fight .fighter {
+    position: absolute;
+}
+
+/* Hit Effects */
+.hit-flash {
+    animation: hitFlash 0.3s ease;
+}
+
+@keyframes hitFlash {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(2) sepia(1) saturate(3); }
+}
+
+.block-flash {
+    animation: blockFlash 0.15s ease;
+}
+
+@keyframes blockFlash {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.5) hue-rotate(180deg); }
+}
+
+.perfect-block-flash {
+    animation: perfectBlockFlash 0.2s ease;
+}
+
+@keyframes perfectBlockFlash {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(2) hue-rotate(90deg); }
+}
+
+/* VS Animation */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.vs-text {
+    animation: pulse 0.5s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tower-title {
+        font-size: 2rem;
+    }
+    
+    .tower-icon {
+        font-size: 4rem;
+    }
+    
+    .tower-visual {
+        flex-direction: column;
+    }
+    
+    .enemy-card {
+        min-width: 280px;
+        padding: 15px;
+    }
+    
+    .tower-btn {
+        min-width: 200px;
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Pause Overlay */
+.tower-pause-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.tower-pause-overlay.active {
+    display: flex;
+}
+
+.pause-panel {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+    border: 3px solid #ff9900;
+    border-radius: 15px;
+    padding: 30px 50px;
+    text-align: center;
+}
+
+.pause-title {
+    font-size: 2rem;
+    color: #ff9900;
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+}

@@ -1,0 +1,97 @@
+# REBOOT - Fighting Game
+
+A browser-based 2D fighting game with advanced defense mechanics, multiple game modes, and character progression.
+
+## Features
+
+- **Multiple Game Modes**
+  - Story Mode: Narrative-driven progression
+  - Arcade Mode: Classic versus battles
+  - Tower Mode: 7-floor challenge gauntlet
+  - Training Mode: Practice with DPS tracking
+
+- **Advanced Combat System**
+  - Perfect blocking and parrying
+  - Guard meter and guard breaks
+  - Multiple attack types (light, medium, heavy)
+  - Stamina-based escape options (backdash, roll, dodge)
+  - Defense system with blockstun and chip damage
+
+- **Character Roster**
+  - 10 playable characters with unique sprites
+  - Sprite-based animation system
+  - Character-specific stats (strength, speed, defense)
+
+## Quick Start
+
+1. **Run Local Server**
+   ```bash
+   cd game
+   python3 -m http.server 8000
+   ```
+
+2. **Open in Browser**
+   ```
+   http://localhost:8000/home.html
+   ```
+
+3. **Select Character & Mode**
+   - Choose from 10 unlocked fighters
+   - Pick your game mode
+   - Configure difficulty and rounds
+
+## Documentation
+
+- [Project Overview](docs/PROJECT_OVERVIEW.md) - Complete technical documentation
+- [Combat System](docs/COMBAT_SYSTEM.md) - Advanced combat mechanics guide
+- [Brainstorming](docs/brainstorming.md) - Design notes and resources
+
+## Project Structure
+
+```
+├── docs/                  # Documentation
+├── game/
+│   ├── index.html        # Arcade mode
+│   ├── home.html         # Character selection
+│   ├── story.html        # Story mode
+│   ├── tower.html        # Tower mode
+│   ├── assets/           # Game assets
+│   │   ├── sprites2/     # Fighter sprites
+│   │   ├── sprites3/     # Advanced fighter sprites
+│   │   ├── characters/   # Character portraits
+│   │   ├── maps/         # Background maps
+│   │   └── ui/           # UI elements
+│   ├── css/              # Stylesheets
+│   └── js/               # Game logic
+│       ├── core/         # Engine, physics, input
+│       ├── entities/     # Fighters, enemies, player
+│       ├── ui/           # HUD, menus, styles
+│       └── story/        # Story mode logic
+```
+
+## Controls
+
+- **A/D** - Move Left/Right
+- **W** - Jump
+- **S** - Crouch
+- **Space** - Attack
+- **U** - Heavy Attack
+- **Shift** - Block
+- **L** - Parry
+- **Q** - Backdash
+- **E** - Roll
+- **R** - Dodge
+- **ESC** - Pause
+
+## Technical Details
+
+- Pure JavaScript (ES6 modules)
+- DOM-based rendering
+- No build step required
+- Modern browser required (ES6 support)
+
+## Credits
+
+- Sprite assets from various public sources
+- Built with vanilla JavaScript
+- Character designs inspired by classic fighting games

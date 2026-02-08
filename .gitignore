@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Node / tooling (if added later)
+node_modules/
+
+# Python (if added later)
+__pycache__/
+*.pyc
+
+# Logs
+*.log

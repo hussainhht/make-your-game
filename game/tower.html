@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tower Mode - REBOOT</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/tower.css">
+    </head>
+    <body>
+        <div id="tower-container">
+
+            <div class="tower-screen active" id="tower-intro">
+                <div class="tower-header">
+                    <div class="tower-badge">CHALLENGE</div>
+                    <h1 class="tower-title">⚔️ THE TOWER ⚔️</h1>
+                    <p class="tower-subtitle">10 Floors of Combat</p>
+                </div>
+
+                <div class="tower-visual">
+                    <div class="tower-icon">🗼</div>
+                    <div class="tower-floors-preview">
+                        <div class="floor-marker boss">10 - BOSS</div>
+                        <div class="floor-marker">9</div>
+                        <div class="floor-marker">8</div>
+                        <div class="floor-marker">7</div>
+                        <div class="floor-marker">6</div>
+                        <div class="floor-marker">5</div>
+                        <div class="floor-marker">4</div>
+                        <div class="floor-marker">3</div>
+                        <div class="floor-marker">2</div>
+                        <div class="floor-marker">1</div>
+                    </div>
+                </div>
+
+                <div class="tower-description">
+                    <p>Climb the tower and defeat all 10 opponents!</p>
+                    <p class="tower-warning">⚠️ Enemies grow stronger each
+                        floor</p>
+                    <p class="tower-boss-hint">🔥 A powerful boss awaits at the
+                        top!</p>
+                </div>
+
+                <div class="tower-progress-info" id="progress-info">
+                </div>
+
+                <div class="tower-buttons">
+                    <button class="tower-btn start" id="btn-start-tower"
+                        onclick="TowerMode.startTower()">
+                        ⚔️ BEGIN ASCENT
+                    </button>
+                    <button class="tower-btn continue" id="btn-continue-tower"
+                        onclick="TowerMode.continueTower()"
+                        style="display: none;">
+                        ▶ CONTINUE (Floor <span id="continue-floor">1</span>)
+                    </button>
+                    <button class="tower-btn exit"
+                        onclick="TowerMode.exitTower()">
+                        ← RETURN TO MENU
+                    </button>
+                </div>
+            </div>
+
+            <div class="tower-screen" id="tower-stage-select">
+                <div class="tower-header">
+                    <div class="tower-badge">TOWER</div>
+                    <h1 class="tower-title" id="stage-title">FLOOR 1</h1>
+                </div>
+
+                <div class="stage-preview">
+                    <div class="enemy-card" id="enemy-preview-card">
+                        <div class="enemy-sprite" id="enemy-sprite-container">
+                        </div>
+                        <div class="enemy-info">
+                            <div class="enemy-name" id="enemy-name">???</div>
+                            <div class="enemy-difficulty"
+                                id="enemy-difficulty">DIFFICULTY: EASY</div>
+                        </div>
+                        <div class="enemy-stats">
+                            <div class="stat-row">
+                                <span class="stat-label">HEALTH:</span>
+                                <div class="stat-bar"><div
+                                        class="stat-fill health"
+                                        id="enemy-health-stat"></div></div>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">DEFENSE:</span>
+                                <div class="stat-bar"><div
+                                        class="stat-fill defense"
+                                        id="enemy-defense-stat"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-buttons">
+                    <button class="tower-btn fight"
+                        onclick="TowerMode.startFight()">
+                        ⚔️ FIGHT
+                    </button>
+                    <button class="tower-btn back"
+                        onclick="TowerMode.showIntro()">
+                        ← BACK
+                    </button>
+                </div>
+            </div>
+
+            <div class="tower-screen" id="tower-fight">
+                <div id="tower-fight-hud">
+                    <div class="floor-indicator">
+                        <span id="current-floor-display">Floor 1</span> / 10
+                    </div>
+                </div>
+                <div id="tower-game">
+                </div>
+            </div>
+
+            <div class="tower-screen" id="tower-round-result">
+                <div class="result-container">
+                    <div class="result-icon" id="round-result-icon">✓</div>
+                    <h1 class="result-title" id="round-result-title">ROUND
+                        WON</h1>
+                    <div class="result-score" id="round-score-display">
+                        Score: 0 - 0
+                    </div>
+                    <div class="result-message" id="round-result-message">
+                        Next round starting...
+                    </div>
+                </div>
+            </div>
+
+            <div class="tower-screen" id="tower-stage-victory">
+                <div class="victory-container">
+                    <div class="victory-icon">🏆</div>
+                    <h1 class="victory-title" id="stage-victory-title">FLOOR
+                        CLEARED!</h1>
+                    <div class="victory-floor" id="cleared-floor">Floor 1
+                        Complete</div>
+                    <div class="victory-message">Prepare for the next
+                        challenge...</div>
+                    <button class="tower-btn next" id="btn-next-floor"
+                        onclick="TowerMode.nextFloor()">
+                        ⬆️ NEXT FLOOR
+                    </button>
+                </div>
+            </div>
+
+            <div class="tower-screen" id="tower-complete">
+                <div class="complete-container">
+                    <div class="complete-icon">👑</div>
+                    <h1 class="complete-title">TOWER CONQUERED!</h1>
+                    <div class="complete-subtitle">You have defeated all 10
+                        opponents!</div>
+                    <div class="complete-reward">
+                        <div class="reward-badge">🏅 TOWER CHAMPION 🏅</div>
+                        <p>Your strength is legendary!</p>
+                    </div>
+                    <div class="complete-buttons">
+                        <button class="tower-btn restart"
+                            onclick="TowerMode.restartTower()">
+                            🔄 CLIMB AGAIN
+                        </button>
+                        <button class="tower-btn exit"
+                            onclick="TowerMode.exitTower()">
+                            ← RETURN TO MENU
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tower-screen" id="tower-defeat">
+                <div class="defeat-container">
+                    <div class="defeat-icon">💀</div>
+                    <h1 class="defeat-title">DEFEATED</h1>
+                    <div class="defeat-floor" id="defeat-floor">Fell at Floor
+                        1</div>
+                    <div class="defeat-message">The tower claims another
+                        challenger...</div>
+                    <div class="defeat-buttons">
+                        <button class="tower-btn retry"
+                            onclick="TowerMode.retryFloor()">
+                            🔄 RETRY FLOOR
+                        </button>
+                        <button class="tower-btn restart"
+                            onclick="TowerMode.restartTower()">
+                            ↩️ RESTART TOWER
+                        </button>
+                        <button class="tower-btn exit"
+                            onclick="TowerMode.exitTower()">
+                            ← EXIT TOWER
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script type="module" src="js/tower.js"></script>
+    </body>
+</html>
