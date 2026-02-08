@@ -2,6 +2,19 @@
 
 A browser-based 2D fighting game with advanced defense mechanics, multiple game modes, and character progression.
 
+## Live Demo
+
+Once GitHub Pages is enabled, your game will be available at:
+
+https://<username>.github.io/<repo>/
+
+### Enable GitHub Pages
+
+1. Go to **Settings → Pages** in your repository.
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+3. Set **Branch** to **main** and **Folder** to **/docs**.
+4. Click **Save** and wait for the deployment to finish.
+
 ## Features
 
 - **Multiple Game Modes**
@@ -25,12 +38,14 @@ A browser-based 2D fighting game with advanced defense mechanics, multiple game 
 ## Quick Start
 
 1. **Run Local Server**
+
    ```bash
-   cd game
+   cd docs
    python3 -m http.server 8000
    ```
 
 2. **Open in Browser**
+
    ```
    http://localhost:8000/home.html
    ```

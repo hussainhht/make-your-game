@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Story Mode - REBOOT</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/story.css">
+    </head>
+    <body>
+        <div id="story-container">
+
+            <div class="story-scene active" id="scene-prologue">
+                <div class="chapter-badge">PROLOGUE</div>
+                <h1 class="story-title">REBOOT</h1>
+                <div class="story-image">💻</div>
+                <p class="story-text">
+                    In a world where <strong>programming decides your
+                        future</strong>,
+                    only the strongest minds are allowed to move forward.
+                    <br><br>
+                    You are a student who dreams of joining
+                    <strong>Reboot</strong>,
+                    a place where coders are forged through pressure,
+                    discipline, and challenge.
+                    <br><br>
+                    After a long journey, you finally arrive…
+                    <br><br>
+                    <em>Late.</em>
+                </p>
+                <button class="continue-btn"
+                    onclick="goToScene('scene-malfis-intro')">ENTER →</button>
+            </div>
+
+            <div class="story-scene" id="scene-malfis-intro">
+                <div class="chapter-badge">THE GATEKEEPER</div>
+                <h1 class="story-title">MALFIS</h1>
+                <div class="character-card npc" style="margin-bottom: 20px;">
+                    <img src="assets/characters/malfis.png" alt="Malfis"
+                        style="width: 250px; height: auto; border-radius: 10px; margin-bottom: 10px;">
+                    <div class="name">MALFIS</div>
+                </div>
+                <div class="dialog-box">
+                    <span class="dialog-speaker">MALFIS</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "So… you are the new student."
+                        <br><br>
+                        <em>"You are late for the selection pool."</em>
+                    </p>
+                </div>
+                <button class="continue-btn"
+                    onclick="goToScene('scene-malfis-choice')">CONTINUE
+                    →</button>
+            </div>
+
+            <div class="story-scene" id="scene-malfis-choice">
+                <div class="chapter-badge">YOUR FATE</div>
+                <h1 class="story-title">THE CHOICE</h1>
+                <div class="dialog-box">
+                    <span class="dialog-speaker">MALFIS</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "You have two choices."
+                        <br><br>
+                        "Either you <strong>wait and study for four long
+                            months</strong>…"
+                        <br><br>
+                        "Or you face <strong>three brutal challenges</strong>
+                        and defeat
+                        <strong>three powerful fighters</strong> to prove your
+                        worth
+                        and enter without the admission test."
+                    </p>
+                </div>
+                <div class="btn-container">
+                    <div class="btn-row">
+                        <button class="continue-btn withdraw"
+                            onclick="withdrawStory()">WITHDRAW</button>
+                        <button class="continue-btn danger"
+                            onclick="goToScene('scene-malfis-warning')">ACCEPT
+                            THE CHALLENGE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-scene" id="scene-malfis-warning">
+                <div class="chapter-badge">PATH OF CHALLENGE</div>
+                <h1 class="story-title">NO TURNING BACK</h1>
+                <div class="dialog-box">
+                    <span class="dialog-speaker">MALFIS</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "You have chosen the path of challenge."
+                        <br><br>
+                        <em>"What awaits you will not be easy."</em>
+                        <br><br>
+                        "I wish you luck…"
+                        <br><br>
+                        <strong>"You will need it."</strong>
+                    </p>
+                </div>
+                <button class="continue-btn"
+                    onclick="goToScene('scene-jifa-training')">CONTINUE
+                    →</button>
+            </div>
+
+            <div class="story-scene" id="scene-jifa-training">
+                <div class="chapter-badge">PREPARATION</div>
+                <h1 class="story-title">JIFA</h1>
+                <div class="character-card npc" style="margin-bottom: 20px;">
+                    <div class="icon">🥋</div>
+                    <div class="name">JIFA</div>
+                </div>
+                <div class="dialog-box">
+                    <span class="dialog-speaker">JIFA</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "I am Jifa. I will teach you the basics of combat."
+                        <br><br>
+                        <strong>CONTROLS:</strong>
+                        <br>
+                        • <strong>A / D</strong> — Move Left / Right
+                        <br>
+                        • <strong>W</strong> — Jump
+                        <br>
+                        • <strong>SPACE</strong> — Attack
+                        <br>
+                        • <strong>Shift</strong> — Block
+                        <br><br>
+                        "Remember these well. Your life depends on them."
+                    </p>
+                </div>
+                <button class="continue-btn"
+                    onclick="goToScene('scene-jifa-send')">I UNDERSTAND
+                    →</button>
+            </div>
+
+            <div class="story-scene" id="scene-jifa-send">
+                <div class="chapter-badge">FIRST CHALLENGE</div>
+                <h1 class="story-title">THE TRIAL BEGINS</h1>
+                <div class="dialog-box">
+                    <span class="dialog-speaker">JIFA</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "Prepare yourself."
+                        <br><br>
+                        <strong>"Go to the first challenge."</strong>
+                    </p>
+                </div>
+                <button class="continue-btn danger"
+                    onclick="goToScene('scene-hitler-bot-intro')">PROCEED
+                    →</button>
+            </div>
+
+            <div class="story-scene" id="scene-hitler-bot-intro">
+                <div class="chapter-badge danger">STAGE 1</div>
+                <h1 class="story-title danger">HITLER BOT</h1>
+                <div class="character-card enemy" style="margin-bottom: 20px;">
+                    <img src="assets/characters/hitler-bot.png" alt="Hitler Bot"
+                        style="width: 280px; height: auto; border-radius: 10px; margin-bottom: 10px;">
+                    <div class="name" style="color: #ff4400;">HITLER BOT</div>
+                </div>
+                <p class="story-text">
+                    The first arena opens.
+                    <br><br>
+                    A mechanical warrior steps forward.
+                    <br><br>
+                    <em>A deadly enforcer sent by the Supreme Authority.</em>
+                </p>
+                <button class="continue-btn danger"
+                    onclick="goToScene('scene-hitler-bot-dialogue')">FACE YOUR
+                    ENEMY →</button>
+            </div>
+
+            <div class="story-scene" id="scene-hitler-bot-dialogue">
+                <div class="chapter-badge danger">STAGE 1</div>
+                <h1 class="story-title danger">HITLER BOT</h1>
+                <div class="dialog-box enemy-dialog">
+                    <span class="dialog-speaker enemy-speaker">HITLER BOT</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "You will regret this choice."
+                        <br><br>
+                        "You will die like all the others who chose this path."
+                        <br><br>
+                        <em>"Your programming life will end here, just like theirs."</em>
+                    </p>
+                </div>
+                <button class="continue-btn danger"
+                    onclick="goToScene('scene-hitler-bot-taunt')">...</button>
+            </div>
+
+            <div class="story-scene" id="scene-hitler-bot-taunt">
+                <div class="chapter-badge danger">STAGE 1</div>
+                <h1 class="story-title danger">HITLER BOT</h1>
+                <div class="dialog-box enemy-dialog">
+                    <span class="dialog-speaker enemy-speaker">HITLER BOT</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        *mechanical laughter*
+                        <br><br>
+                        "Wouldn't it be better to <strong>retreat</strong> and
+                        return
+                        to the safety of the selection pool?"
+                    </p>
+                </div>
+                <div class="btn-container">
+                    <div class="btn-row">
+                        <button class="continue-btn withdraw"
+                            onclick="retreatToMenu()">RETREAT</button>
+                        <button class="continue-btn danger"
+                            onclick="startFight(1)">REFUSE TO RETREAT</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-scene" id="scene-hitler-bot-victory">
+                <div class="chapter-badge"
+                    style="border-color: #00ff00; color: #00ff00;">VICTORY</div>
+                <h1 class="story-title success">CONGRATULATIONS</h1>
+                <div class="story-image" style="border-color: #00ff00;">🏆</div>
+                <p class="story-text">
+                    <em>Proceeding to the next stage…</em>
+                </p>
+                <button class="continue-btn"
+                    onclick="goToScene('scene-hitler-bot-death')">CONTINUE
+                    →</button>
+            </div>
+
+            <div class="story-scene" id="scene-hitler-bot-death">
+                <div class="chapter-badge danger">STAGE 1 COMPLETE</div>
+                <h1 class="story-title danger">FINAL WORDS</h1>
+                <div class="dialog-box enemy-dialog">
+                    <span class="dialog-speaker enemy-speaker">HITLER BOT</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "I… ah…"
+                        <br><br>
+                        "I warn you… b-be careful of the—"
+                        <br><br>
+                        <em>*system shutdown*</em>
+                    </p>
+                </div>
+                <p class="story-text" style="color: #666; font-size: 1rem;">
+                    His system shuts down forever.
+                </p>
+                <button class="continue-btn"
+                    onclick="goToScene('scene-yaman-intro')">PROCEED TO STAGE 2
+                    →</button>
+            </div>
+
+            <div class="story-scene" id="scene-yaman-intro">
+                <div class="chapter-badge danger">STAGE 2</div>
+                <h1 class="story-title blood">YAMAN</h1>
+                <div class="story-image boss"
+                    style="border-color: #8B0000;">👹</div>
+                <p class="story-text">
+                    The second arena opens.
+                    <br><br>
+                    A massive figure blocks your path.
+                    <br><br>
+                    <em>There is no escape.</em>
+                </p>
+                <button class="continue-btn blood"
+                    onclick="goToScene('scene-yaman-dialogue')">FACE YOUR
+                    DESTINY →</button>
+            </div>
+
+            <div class="story-scene" id="scene-yaman-dialogue">
+                <div class="chapter-badge danger">STAGE 2</div>
+                <h1 class="story-title blood">YAMAN</h1>
+                <div class="dialog-box boss-dialog">
+                    <span class="dialog-speaker boss-speaker">YAMAN</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "Impressive."
+                        <br><br>
+                        "I did not expect Hitler Bot to fall so easily."
+                    </p>
+                </div>
+                <button class="continue-btn blood"
+                    onclick="goToScene('scene-yaman-threat')">...</button>
+            </div>
+
+            <div class="story-scene" id="scene-yaman-threat">
+                <div class="chapter-badge danger">STAGE 2</div>
+                <h1 class="story-title blood">NO ESCAPE</h1>
+                <div class="dialog-box boss-dialog">
+                    <span class="dialog-speaker boss-speaker">YAMAN</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        *clenches fists*
+                        <br><br>
+                        "But now there is <strong>no turning back</strong>."
+                        <br><br>
+                        <em>"Your programming life will end here…"</em>
+                        <br><br>
+                        <strong>"With my deepest regret."</strong>
+                    </p>
+                </div>
+                <div class="btn-container">
+                    <button class="continue-btn blood" onclick="startFight(2)"
+                        style="padding: 20px 80px; font-size: 1.5rem;">
+                        ⚔️ CONTINUE ⚔️
+                    </button>
+                </div>
+            </div>
+
+            <!-- YAMAN VICTORY (after 3 audits) -->
+            <div class="story-scene" id="scene-yaman-victory">
+                <div class="chapter-badge"
+                    style="border-color: #00ff00; color: #00ff00;">VICTORY</div>
+                <h1 class="story-title success">STAGE 2 COMPLETE</h1>
+                <div class="story-image" style="border-color: #00ff00;">🏆</div>
+                <p class="story-text">
+                    You survived Yaman's 3 audits.
+                    <br><br>
+                    <em>But the final gate remains locked…</em>
+                </p>
+                <button class="continue-btn"
+                    onclick="goToScene('scene-yaman-death')">CONTINUE →</button>
+            </div>
+
+            <div class="story-scene" id="scene-yaman-death">
+                <div class="chapter-badge danger">STAGE 2 COMPLETE</div>
+                <h1 class="story-title danger">FINAL WORDS</h1>
+                <div class="dialog-box boss-dialog">
+                    <span class="dialog-speaker boss-speaker">YAMAN</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "You… passed my audits."
+                        <br><br>
+                        "But do not celebrate yet."
+                        <br><br>
+                        <em>"Ahmed Abdeen awaits you. He is… something else entirely."</em>
+                        <br><br>
+                        <strong>"May your code compile on the first try."</strong>
+                    </p>
+                </div>
+                <button class="continue-btn"
+                    onclick="goToScene('scene-ahmed-intro')">PROCEED TO FINAL
+                    STAGE →</button>
+            </div>
+
+            <!-- AHMED ABDEEN — FINAL STAGE -->
+            <div class="story-scene" id="scene-ahmed-intro">
+                <div class="chapter-badge danger">FINAL STAGE</div>
+                <h1 class="story-title blood">AHMED ABDEEN</h1>
+                <div class="story-image boss"
+                    style="border-color: #8B0000; font-size: 5rem;">👤</div>
+                <p class="story-text">
+                    The final arena opens.
+                    <br><br>
+                    A figure stands at the center, arms folded.
+                    <br><br>
+                    <em>The Supreme Auditor. The last wall before the Selection
+                        Pool.</em>
+                </p>
+                <button class="continue-btn blood"
+                    onclick="goToScene('scene-ahmed-dialogue')">FACE YOUR
+                    DESTINY →</button>
+            </div>
+
+            <div class="story-scene" id="scene-ahmed-dialogue">
+                <div class="chapter-badge danger">FINAL STAGE</div>
+                <h1 class="story-title blood">AHMED ABDEEN</h1>
+                <div class="dialog-box boss-dialog">
+                    <span class="dialog-speaker boss-speaker">AHMED
+                        ABDEEN</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "So you made it this far."
+                        <br><br>
+                        "Yaman was nothing. Hitler Bot was a toy."
+                        <br><br>
+                        <em>"But my audits… my audits are different."</em>
+                    </p>
+                </div>
+                <button class="continue-btn blood"
+                    onclick="goToScene('scene-ahmed-threat')">...</button>
+            </div>
+
+            <div class="story-scene" id="scene-ahmed-threat">
+                <div class="chapter-badge danger">FINAL STAGE</div>
+                <h1 class="story-title blood">10 AUDITS</h1>
+                <div class="dialog-box boss-dialog">
+                    <span class="dialog-speaker boss-speaker">AHMED
+                        ABDEEN</span>
+                    <p class="story-text" style="margin: 0; text-align: left;">
+                        "You will face <strong>10 audits</strong>. Back to
+                        back."
+                        <br><br>
+                        "No healing. No rest. No mercy."
+                        <br><br>
+                        <em>"Your HP carries over. Every scratch, every wound."</em>
+                        <br><br>
+                        <strong>"Let's see if your code can survive production."</strong>
+                    </p>
+                </div>
+                <div class="btn-container">
+                    <button class="continue-btn blood"
+                        onclick="startAuditFight(3)"
+                        style="padding: 20px 80px; font-size: 1.5rem;">
+                        ⚔️ BEGIN THE AUDITS ⚔️
+                    </button>
+                </div>
+            </div>
+
+            <!-- ACCEPTANCE (shown only after surviving all 10 audits) -->
+            <div class="story-scene" id="scene-accepted">
+                <div class="chapter-badge"
+                    style="border-color: #00ff88; color: #00ff88;">VERDICT</div>
+                <h1 class="story-title"
+                    style="color: #00ff88; text-shadow: 0 0 30px rgba(0,255,136,0.5);">ACCEPTED</h1>
+                <div class="story-image"
+                    style="border-color: #00ff88; font-size: 4rem;">🔓</div>
+                <p class="story-text" style="font-size: 1.3rem;">
+                    <strong>"Accepted into the Selection Pool."</strong>
+                    <br><br>
+                    The gate unlocks—not as a reward, but as a verdict.
+                    <br><br>
+                    You didn't just win fights.
+                    <br><br>
+                    <em>You passed the Audits.</em>
+                </p>
+                <button class="continue-btn"
+                    onclick="window.location.href='home.html'"
+                    style="margin-top: 30px; border-color: #00ff88; color: #00ff88;">
+                    🏠 RETURN HOME
+                </button>
+            </div>
+
+            <div class="story-scene" id="scene-coming-soon">
+            </div>
+
+        </div>
+
+        <div id="fight-container">
+            <div id="game"></div>
+        </div>
+
+        <script type="module" src="js/story.js"></script>
+    </body>
+</html>
