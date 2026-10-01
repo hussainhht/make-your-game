@@ -10,6 +10,7 @@ Combat is built around a **charge-based block system** (three blocks that you wi
 
 Everything — engine, physics, hit detection, AI, HUD and menus — is roughly **7,400 lines of hand-written ES-module JavaScript** across 22 files, rendered with plain DOM elements and CSS sprite sheets.
 
+</div>
 ## Game Preview
 
 <p align="center">
