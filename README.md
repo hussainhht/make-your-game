@@ -1,5 +1,21 @@
 <div align="center">
 
+# REBOOT
+
+### A browser-based 2D fighting game built from scratch with vanilla JavaScript — no framework, no libraries, no build step.
+
+[![Play on GitHub Pages](https://img.shields.io/badge/Play-GitHub%20Pages-222222?logo=github)](https://hussainhht.github.io/make-your-game/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=black)](docs/js)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](docs/index.html)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](docs/css)
+[![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)](#tech-stack)
+
+**[Play online](https://hussainhht.github.io/make-your-game/)** · [Game modes](#game-modes) · [Controls](#controls) · [Combat](#combat--defense-system) · [Architecture](#architecture) · [Run locally](#getting-started)
+
+<img src="docs/screenshots/gameplay.png" width="900" alt="REBOOT arcade match: Dark Samurai fighting an AI opponent on the Ashfall Arcade stage, with health bars, block charges and escape-cooldown icons">
+
+</div>
+
 ---
 
 ## About the Game
@@ -10,7 +26,6 @@ Combat is built around a **charge-based block system** (three blocks that you wi
 
 Everything — engine, physics, hit detection, AI, HUD and menus — is roughly **7,400 lines of hand-written ES-module JavaScript** across 22 files, rendered with plain DOM elements and CSS sprite sheets.
 
-</div>
 ## Game Preview
 
 <p align="center">
@@ -58,12 +73,12 @@ Everything — engine, physics, hit detection, AI, HUD and menus — is roughly 
 
 ## Game Modes
 
-| Mode               | What it is                                                              |                                                 In the menu?                                                 |
-| ------------------ | ----------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------: |
-| **Story**    | Scripted campaign with dialogue scenes and three fight stages           |                                                      ✅                                                      |
-| **Arcade**   | Best-of-N matches against a random AI fighter on a stage of your choice |                                                      ✅                                                      |
-| **Training** | Free practice against a dummy with a live DPS counter                   |                                                      ✅                                                      |
-| **Tower**    | 10-floor gauntlet with scaling enemies and saved progress               | ⚠️ implemented, but the menu button is commented out — open[`docs/tower.html`](docs/tower.html) directly |
+| Mode | What it is | In the menu? |
+|---|---|:---:|
+| **Story** | Scripted campaign with dialogue scenes and three fight stages | ✅ |
+| **Arcade** | Best-of-N matches against a random AI fighter on a stage of your choice | ✅ |
+| **Training** | Free practice against a dummy with a live DPS counter | ✅ |
+| **Tower** | 10-floor gauntlet with scaling enemies and saved progress | ⚠️ implemented, but the menu button is commented out — open [`docs/tower.html`](docs/tower.html) directly |
 
 ```mermaid
 flowchart LR
@@ -90,7 +105,6 @@ flowchart LR
 Press `Esc` during any fight to pause (Continue / Restart / Menu in arcade and training; Back to Story in story mode; Restart Floor / Exit Tower in tower mode).
 
 ### Story Mode
-
 You arrive late at a coding bootcamp. You can wait four months for the admission test, or accept a challenge: defeat three fighters instead.
 
 - **Stage 1** — best-of-3 against a robotic enforcer (a CSS-drawn enemy; stats 60 / 50 / 45).
@@ -99,18 +113,15 @@ You arrive late at a coding bootcamp. You can wait four months for the admission
 - Defeat offers *Retry* or *Main Menu*. Story mode has no save state, and ignores the menu's difficulty/rounds settings (stages use presets). Your chosen fighter's stats are used.
 
 ### Arcade Mode
-
 - One opponent per match, picked at random from the 13 sprite fighters; you choose difficulty (**Easy / Normal / Hard / Expert**), rounds (**1 / 2 / 3 / 5**) and one of **19 stages** (or random).
 - A round lasts **90 seconds**. On time-out the fighter with more HP wins (a tie goes to the player). First to ⌈N/2⌉ round wins takes the match.
 - Score: +10 per point of damage dealt, +500 per round won. Music loops during arcade and training.
 
 ### Training Mode
-
 - A static dummy in the middle of the stage that never attacks or moves and **restores its health after every hit**.
 - A rolling **1-second DPS counter** appears as you hit it. No KO, no round logic; the timer is frozen.
 
 ### Tower Mode
-
 - **10 floors**, each a best-of-3 against a randomly assigned fighter with a rank title (e.g. *"Rookie Dark Samurai"*). Floor 10 is a boss.
 - Enemy stats scale with the floor (strength and speed ×(1 + 0.25·floor) from a per-floor base, defense +2 per floor; the boss gets an extra ×1.5 strength and ×1.3 defense).
 - Progress (`unlockedFloor`) is saved in `localStorage`; the intro screen shows a **Continue** button after your first cleared floor.
@@ -121,17 +132,17 @@ You arrive late at a coding bootcamp. You can wait four months for the admission
 
 Keyboard only. There is no remapping, gamepad or touch support. Bindings use physical key codes (`KeyboardEvent.code`).
 
-| Action            | Keys                            | Notes                                            |
-| ----------------- | ------------------------------- | ------------------------------------------------ |
-| Move left / right | `A` `D` or `←` `→`    | Sprite fighters walk at`300 + 2 × speed` px/s |
-| Jump              | `W` or `↑`                 | Only from the ground                             |
-| Attack            | `Space` or `J`              | Ground only; 0.5 s cooldown; not while blocking  |
-| "Heavy" attack    | `U`                           | Bound, but currently triggers the same attack    |
-| Block             | hold`Shift` (either) or `K` | Each absorbed hit uses one block charge          |
-| Backdash          | `Q`                           | Moves away from the opponent                     |
-| Roll              | `E`                           | Moves in the facing direction                    |
-| Spot dodge        | `R`                           | Stays in place                                   |
-| Pause             | `Esc`                         | All fight screens; menus are mouse-driven        |
+| Action | Keys | Notes |
+|---|---|---|
+| Move left / right | `A` `D` or `←` `→` | Sprite fighters walk at `300 + 2 × speed` px/s |
+| Jump | `W` or `↑` | Only from the ground |
+| Attack | `Space` or `J` | Ground only; 0.5 s cooldown; not while blocking |
+| "Heavy" attack | `U` | Bound, but currently triggers the same attack |
+| Block | hold `Shift` (either) or `K` | Each absorbed hit uses one block charge |
+| Backdash | `Q` | Moves away from the opponent |
+| Roll | `E` | Moves in the facing direction |
+| Spot dodge | `R` | Stays in place |
+| Pause | `Esc` | All fight screens; menus are mouse-driven |
 
 ---
 
@@ -154,18 +165,18 @@ Fighters are **auto-facing**: they always turn toward the opponent unless attack
 <details>
 <summary><b>Verified constants</b> (from <code>js/core/combat-system.js</code>, <code>js/entities/sprite-fighter.js</code>; confirmed by instantiating the modules in a browser)</summary>
 
-| Property                 | Value                                                                                                                                     |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Max health               | 100 (120 for the unused`boss` AI preset)                                                                                                |
-| Attack cooldown          | 0.5 s                                                                                                                                     |
-| Hit-stun after being hit | 0.4 s                                                                                                                                     |
-| Block charges            | 3 max; +1 per 2 landed hits; pushback 3                                                                                                   |
-| Stamina                  | 100 max · regen 15/s · regen delay 0.5 s                                                                                                |
-| **Backdash**       | 20 stamina · duration 0.3 s · cooldown 0.8 s · i-frame window 0 – 0.15 s                                                              |
-| **Roll**           | 45 stamina in practice (25 charged by the fighter + 20`ROLL.STAMINA_COST`) · duration 0.5 s · cooldown 1.2 s · window 0.05 – 0.35 s |
-| **Spot dodge**     | 15 stamina · duration 0.25 s · cooldown 0.6 s · window 0.02 – 0.18 s                                                                  |
-| Sprite size × scale     | 128 px × 2 (arcade/training) or × 2.5 (story/tower); 96 px sprites ×2.5; 256 px sprites ×1.25                                         |
-| Stage                    | 960 × 540 logical pixels; ground at`540 − height − 20`                                                                               |
+| Property | Value |
+|---|---|
+| Max health | 100 (120 for the unused `boss` AI preset) |
+| Attack cooldown | 0.5 s |
+| Hit-stun after being hit | 0.4 s |
+| Block charges | 3 max; +1 per 2 landed hits; pushback 3 |
+| Stamina | 100 max · regen 15/s · regen delay 0.5 s |
+| **Backdash** | 20 stamina · duration 0.3 s · cooldown 0.8 s · i-frame window 0 – 0.15 s |
+| **Roll** | 45 stamina in practice (25 charged by the fighter + 20 `ROLL.STAMINA_COST`) · duration 0.5 s · cooldown 1.2 s · window 0.05 – 0.35 s |
+| **Spot dodge** | 15 stamina · duration 0.25 s · cooldown 0.6 s · window 0.02 – 0.18 s |
+| Sprite size × scale | 128 px × 2 (arcade/training) or × 2.5 (story/tower); 96 px sprites ×2.5; 256 px sprites ×1.25 |
+| Stage | 960 × 540 logical pixels; ground at `540 − height − 20` |
 
 </details>
 
@@ -177,23 +188,23 @@ The menu offers **15 fighters** (none are locked). **14 are animated sprite figh
 
 All fighters share the **same moveset** (one attack, block, three escapes). What differs is **stats and visuals**: the menu's strength / speed / defense are passed to your fighter and directly drive damage (`floor(12 + STR/8)`), walking speed (`300 + 2·SPD`) and damage reduction (`1 − DEF/200`). Most fighters have three attack animations that are picked at random; damage is identical.
 
-|  # | Fighter           | STR | SPD | DEF | Visuals                             |
-| -: | ----------------- | --: | --: | --: | ----------------------------------- |
-|  1 | melvis            |  50 |  50 |  50 | Sprite (minimal frames)             |
-|  2 | Shadow Ninja      |  65 |  90 |  60 | CSS-gradient placeholder            |
-|  3 | Pixel Samurai     |  75 |  80 |  65 | Sprite, 96 px                       |
-|  4 | Dark Samurai      |  80 |  75 |  80 | Sprite, 3 attack animations         |
-|  5 | Shinobi           |  70 |  95 |  55 | Sprite, 3 attack animations         |
-|  6 | Street Fighter    |  85 |  80 |  70 | Sprite, 3 attack animations         |
-|  7 | Gotoku            |  90 |  65 |  80 | Sprite, 3 attack animations         |
-|  8 | Onre              |  75 |  85 |  70 | Sprite, 3 attack animations         |
-|  9 | Yurei             |  70 |  90 |  65 | Sprite, 3 attack animations         |
-| 10 | Graffiti Artist   |  75 |  85 |  65 | Sprite, 256 px, 3 attack animations |
-| 11 | Gorgon            |  90 |  60 |  85 | Sprite, 3 attack animations         |
-| 12 | Minotaur          |  95 |  55 |  90 | Sprite, single attack               |
-| 13 | zombie            |  85 |  65 |  80 | Sprite, single attack               |
-| 14 | samurai           |  80 |  70 |  75 | Sprite, 3 attack animations         |
-| 15 | samurai commander |  90 |  75 |  85 | Sprite, 3 attack animations         |
+| # | Fighter | STR | SPD | DEF | Visuals |
+|--:|---|--:|--:|--:|---|
+| 1 | melvis | 50 | 50 | 50 | Sprite (minimal frames) |
+| 2 | Shadow Ninja | 65 | 90 | 60 | CSS-gradient placeholder |
+| 3 | Pixel Samurai | 75 | 80 | 65 | Sprite, 96 px |
+| 4 | Dark Samurai | 80 | 75 | 80 | Sprite, 3 attack animations |
+| 5 | Shinobi | 70 | 95 | 55 | Sprite, 3 attack animations |
+| 6 | Street Fighter | 85 | 80 | 70 | Sprite, 3 attack animations |
+| 7 | Gotoku | 90 | 65 | 80 | Sprite, 3 attack animations |
+| 8 | Onre | 75 | 85 | 70 | Sprite, 3 attack animations |
+| 9 | Yurei | 70 | 90 | 65 | Sprite, 3 attack animations |
+| 10 | Graffiti Artist | 75 | 85 | 65 | Sprite, 256 px, 3 attack animations |
+| 11 | Gorgon | 90 | 60 | 85 | Sprite, 3 attack animations |
+| 12 | Minotaur | 95 | 55 | 90 | Sprite, single attack |
+| 13 | zombie | 85 | 65 | 80 | Sprite, single attack |
+| 14 | samurai | 80 | 70 | 75 | Sprite, 3 attack animations |
+| 15 | samurai commander | 90 | 75 | 85 | Sprite, 3 attack animations |
 
 Opponents do **not** use these menu stats: arcade enemies use a fixed 70 / 65 / 60 (then modified by difficulty), story and tower enemies use preset values.
 
@@ -208,11 +219,11 @@ Opponents (`SpriteEnemy`, `js/entities/sprite-enemy.js`) are a small **state mac
 - **Difficulty** (menu: Easy / Normal / Hard / Expert) changes how often the AI decides, and how hard it hits and how tanky it is:
 
 | Difficulty | Decision interval | Strength × | Defense × |
-| ---------- | ----------------: | ----------: | ---------: |
-| Easy       |             0.6 s |         0.7 |        0.7 |
-| Normal     |             0.4 s |         1.0 |        1.0 |
-| Hard       |            0.25 s |         1.2 |        1.2 |
-| Expert     |            0.15 s |         1.3 |        1.3 |
+|---|--:|--:|--:|
+| Easy | 0.6 s | 0.7 | 0.7 |
+| Normal | 0.4 s | 1.0 | 1.0 |
+| Hard | 0.25 s | 1.2 | 1.2 |
+| Expert | 0.15 s | 1.3 | 1.3 |
 
 The AI does not use backdash, roll or spot dodge.
 
@@ -284,24 +295,24 @@ flowchart TD
 <details>
 <summary><b>Module reference</b></summary>
 
-| Module                                                                         | Responsibility                                                                                                       |
-| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| `js/character-select.js`                                                     | Menu controller; writes`gameConfig` (fighter, mode, difficulty, rounds, stage) to `sessionStorage` and navigates |
-| `js/character-types.js`                                                      | `CHARACTER_TYPES`: sprite-sheet config for each of the 15 roster entries                                           |
-| `js/main.js`                                                                 | Arcade + training controller: setup, round logic, hit resolution, pause, game over                                   |
-| `js/story.js`                                                                | Story controller: scene navigation, stage fights, audit fights, defeat / victory                                     |
-| `js/tower-controller.js`, `tower-data.js`, `tower.js`                    | Tower controller, floor settings / scaling / enemy generation, entry wrapper                                         |
-| `js/ui-main.js`                                                              | Layered stage setup + scaling, HUD, health bars, pause / game-over overlays, training DPS                            |
-| `js/ui/defense-hud.js`                                                       | Block-charge icons, state label, escape cooldown icons                                                               |
-| `js/ui/fighter-styles.js`                                                    | Injected CSS for fighter bodies and hit / block effects                                                              |
-| `js/core/engine.js`                                                          | `Engine`: rAF loop, dt clamp, pause / resume                                                                       |
-| `js/core/input.js`                                                           | `Input`: held / just-pressed key state                                                                             |
-| `js/core/physics.js`                                                         | `applyGravity` (plus two helpers that are currently unused)                                                        |
-| `js/core/combat-system.js`                                                   | `DEFENSE_CONFIG`, `DefenseSystem` (block charges, escapes, cooldowns)                                            |
-| `js/core/audits-manager.js`                                                  | `AuditsManager`: sequential opponents with persistent player state                                                 |
-| `js/entities/sprite-fighter.js`                                              | `SpriteFighter`: stats, state machine, hitboxes, sprite animation, damage, DOM rendering                           |
-| `js/entities/sprite-player.js` / `sprite-enemy.js`                         | Keyboard control / AI on top of`SpriteFighter`                                                                     |
-| `js/entities/fighter.js`, `player.js`, `enemy.js`, `training-dummy.js` | CSS-box fighter family (Shadow Ninja, the training dummy)                                                            |
+| Module | Responsibility |
+|---|---|
+| `js/character-select.js` | Menu controller; writes `gameConfig` (fighter, mode, difficulty, rounds, stage) to `sessionStorage` and navigates |
+| `js/character-types.js` | `CHARACTER_TYPES`: sprite-sheet config for each of the 15 roster entries |
+| `js/main.js` | Arcade + training controller: setup, round logic, hit resolution, pause, game over |
+| `js/story.js` | Story controller: scene navigation, stage fights, audit fights, defeat / victory |
+| `js/tower-controller.js`, `tower-data.js`, `tower.js` | Tower controller, floor settings / scaling / enemy generation, entry wrapper |
+| `js/ui-main.js` | Layered stage setup + scaling, HUD, health bars, pause / game-over overlays, training DPS |
+| `js/ui/defense-hud.js` | Block-charge icons, state label, escape cooldown icons |
+| `js/ui/fighter-styles.js` | Injected CSS for fighter bodies and hit / block effects |
+| `js/core/engine.js` | `Engine`: rAF loop, dt clamp, pause / resume |
+| `js/core/input.js` | `Input`: held / just-pressed key state |
+| `js/core/physics.js` | `applyGravity` (plus two helpers that are currently unused) |
+| `js/core/combat-system.js` | `DEFENSE_CONFIG`, `DefenseSystem` (block charges, escapes, cooldowns) |
+| `js/core/audits-manager.js` | `AuditsManager`: sequential opponents with persistent player state |
+| `js/entities/sprite-fighter.js` | `SpriteFighter`: stats, state machine, hitboxes, sprite animation, damage, DOM rendering |
+| `js/entities/sprite-player.js` / `sprite-enemy.js` | Keyboard control / AI on top of `SpriteFighter` |
+| `js/entities/fighter.js`, `player.js`, `enemy.js`, `training-dummy.js` | CSS-box fighter family (Shadow Ninja, the training dummy) |
 
 </details>
 
@@ -326,23 +337,19 @@ flowchart LR
 ```
 
 ### Physics & collision
-
 - **Horizontal movement** is scaled by `dt`; knockback and escape impulses decay with a ×0.85 friction per frame.
 - **Gravity** adds `30 · dt` to vertical velocity; the ground is `y = 540 − height − 20`, and fighters are clamped to `x ∈ [0, 960 − width]`.
 - **Hit detection** is axis-aligned box overlap between the attacker's active attack box and the defender's hurtbox. Fighters do not collide body-to-body.
 
 ### Rendering & animation
-
 - **DOM-based**, not canvas: each fighter is an absolutely-positioned `<div>` flipped with `scaleX(±1)`, containing a child `<div>` whose `background-image` is a horizontal sprite strip.
 - A frame is selected by shifting `background-position` by `frame × spriteWidth × scale`; `image-rendering: pixelated` keeps pixel art crisp. Animations (`idle`, `running`, `attacking` ×3, `hurt`, `blocking`, `dead`) have per-frame durations; the attack hitbox turns on at the animation's middle frame.
 - Sprite images are pre-loaded with `new Image()` when a fighter is created.
 
 ### Input
-
 `Input` listens to `keydown` / `keyup` on `window` and keeps a held-key map plus a one-frame `justPressed` set, which the game clears after each update. Movement, jump and block use held state; attack and escapes use `justPressed`.
 
 ### State & persistence
-
 - The menu hands its choices to the next page through `sessionStorage` (`gameConfig`).
 - Only Tower progress is persisted across sessions (`localStorage`, key `towerProgress`).
 - Audio uses `HTMLAudioElement` (menu hover sound, looping music in arcade / training).
@@ -351,17 +358,17 @@ flowchart LR
 
 ## Tech Stack
 
-| Area                   | Technology                                                                    |
-| ---------------------- | ----------------------------------------------------------------------------- |
-| Game logic             | JavaScript (ES2015+ modules, classes)                                         |
-| Interface              | HTML5                                                                         |
-| Styling                | CSS3 (3 stylesheets, transitions and keyframe animations)                     |
-| Rendering              | DOM + CSS transforms + CSS sprite sheets (no canvas)                          |
-| Audio                  | HTMLAudioElement                                                              |
-| Storage                | `sessionStorage` (menu → mode hand-off), `localStorage` (tower progress) |
-| Libraries / frameworks | **None** — vanilla JavaScript, no build step                           |
-| Hosting                | GitHub Pages                                                                  |
-| Version control        | Git / GitHub                                                                  |
+| Area | Technology |
+|---|---|
+| Game logic | JavaScript (ES2015+ modules, classes) |
+| Interface | HTML5 |
+| Styling | CSS3 (3 stylesheets, transitions and keyframe animations) |
+| Rendering | DOM + CSS transforms + CSS sprite sheets (no canvas) |
+| Audio | HTMLAudioElement |
+| Storage | `sessionStorage` (menu → mode hand-off), `localStorage` (tower progress) |
+| Libraries / frameworks | **None** — vanilla JavaScript, no build step |
+| Hosting | GitHub Pages |
+| Version control | Git / GitHub |
 
 ---
 
@@ -398,11 +405,9 @@ make-your-game/
 ## Getting Started
 
 ### Live demo
-
 **https://hussainhht.github.io/make-your-game/** — the root page redirects to `/docs/`. Tower mode: `https://hussainhht.github.io/make-your-game/docs/tower.html`.
 
 ### Run locally
-
 The game uses ES modules, so it must be served over HTTP — opening the HTML files with `file://` does **not** work (browsers block module scripts there).
 
 ```bash
@@ -414,7 +419,6 @@ python3 -m http.server 8000
 Then open **http://localhost:8000**. Any static file server works equally well. Verified in Chromium; any browser with ES-module support should run it.
 
 ### Deploy your own copy on GitHub Pages
-
 1. Push the repository to GitHub.
 2. **Settings → Pages → Build and deployment → Source: Deploy from a branch.**
 3. Choose **Branch: `main`**, **Folder: `/ (root)`**, then **Save**.
@@ -425,18 +429,16 @@ Then open **http://localhost:8000**. Any static file server works equally well. 
 ## Development
 
 ### History
-
 All 4 commits are authored as `hussainali7`, on 2026-02-08. The history starts with a full import of the game, so it records repository preparation rather than feature-by-feature development:
 
-| Commit                   | What changed                                                                                                           |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| `be4ed0d` first commit | Imports the game under`game/` (22 JS modules, 3 stylesheets, HTML pages, assets) plus project docs                   |
-| `35e8ec0` docs         | Copies the game into`docs/` (for GitHub Pages) and adds the root `index.html` redirect                             |
-| `7a037e9` move         | Removes the old`game/` tree and the stand-alone design docs; `docs/` becomes the only game root                    |
-| `db167ec` refactor     | Merges`home.html` into `index.html` (the menu is now the landing page), adds `arcade.html`, re-points navigation |
+| Commit | What changed |
+|---|---|
+| `be4ed0d` first commit | Imports the game under `game/` (22 JS modules, 3 stylesheets, HTML pages, assets) plus project docs |
+| `35e8ec0` docs | Copies the game into `docs/` (for GitHub Pages) and adds the root `index.html` redirect |
+| `7a037e9` move | Removes the old `game/` tree and the stand-alone design docs; `docs/` becomes the only game root |
+| `db167ec` refactor | Merges `home.html` into `index.html` (the menu is now the landing page), adds `arcade.html`, re-points navigation |
 
 ### Known limitations
-
 <details>
 <summary>Current implementation notes (what is stubbed, simplified or not yet normalised)</summary>
 
@@ -452,7 +454,10 @@ All 4 commits are authored as `hussainali7`, on 2026-02-08. The history starts w
 
 ## Author
 
-Built by **[hussainhht](https://github.com/hussainhht)**. and balafoo (Bader Alafoo)
+Built by **[hussainhht](https://github.com/hussainhht)**.
+and 
+
+balafoo (Bader Alafoo)
 
 ## Credits
 
